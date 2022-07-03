@@ -34,6 +34,7 @@ def analyze_file(json_file):
             line = f.readline()
     return widths, heights
 
+
 with Pool(processes=len(files)) as pool:
     dimensions = pool.map(analyze_file, files)
 
@@ -42,11 +43,24 @@ heights = []
 for dimensions_i in dimensions:
     widths += dimensions_i[0]
     heights += dimensions_i[1]
-widths = np.array(widths)
-heights = np.array(heights)
+widths = np.array(widths, dtype=float)
+heights = np.array(heights, dtype=float)
+image_aspect_ratios = widths / heights
 
-print(np.mean(widths), np.min(widths), np.max(widths))
-print(np.mean(heights), np.min(heights), np.max(heights))
+aspect_ratios = [(16, 9), (4, 3), (1, 1), (3, 4), (1, 1.41)]
+num_pictures_total = image_aspect_ratios.shape[0]
+print(f"Total: {num_pictures_total}")
+num_pictures = []
+for aspect_ratio_w, aspect_ratio_h in aspect_ratios:
+    ratio_fits = np.abs(image_aspect_ratios * (aspect_ratio_h / aspect_ratio_w) - 1) < 0.02
+    num_pictures_i = np.sum(ratio_fits)
+    print(
+        f"{aspect_ratio_w}/{aspect_ratio_h}: "
+        f"{num_pictures_i}, {num_pictures_i/num_pictures_total*100:.2f}%"
+    )
+    num_pictures.append(num_pictures_i)
+num_other = num_pictures_total - np.sum(num_pictures)
+print(f"Other: {num_other}, {num_other/num_pictures_total*100:.2f}%")
 
 plt.figure(figsize=(6, 6))
 start = 400
