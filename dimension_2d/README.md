@@ -1,10 +1,10 @@
 # Dimension 2d
 ## All Images
-![All images](dimension_2d/dimension_2d.png)
+![All images](./dimension_2d.png)
 ## Monochrome Only
-![All images](dimension_2d/dimension_2d_monochrome.png)
+![Monochrome only](./dimension_2d_monochrome.png)
 ## Color Only
-![All images](dimension_2d/dimension_2d_rgb.png)
+![Color only](./dimension_2d_rgb.png)
 ## Numerical Data
 | Aspect Ratio | All, Absolute | All, Percentage | Monochrome, Absolute | Monochrome, Percentage | Color, Absolute | Color, Percentage |
 | ------------ | ------------- | --------------- | -------------------- | ---------------------- | --------------- | ----------------- |
