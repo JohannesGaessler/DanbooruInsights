@@ -9,34 +9,37 @@ The Python script in this directory can filter images by certain tags.
 ## All Images
 ![All images](./dimension_2d.png)
 Dark blue indicates few images while yellow indicates many images.
-When considering all images, five aspect ratios in particular stand out: 16:9, 4:3, 1:1, 3:4, and 1:1.41 (likely due to [ISO 216](https://en.wikipedia.org/wiki/ISO_216)).
+The following aspect ratios are highlighted: 2:3, 1:1.41 (see [ISO 216](https://en.wikipedia.org/wiki/ISO_216)), 3:4, 4:5, 1:1, 4:3, 1.41:1, and 16:9.
 The most common aspect ratio is 1:1.41 with roughly a quarter of images adhering to this aspect ratio (see below).
-However, the majority of images do not conform to one of those aspect ratios.
+However, almost half of all images do not conform to one of those aspect ratios.
 A few clusters can be spotted (e.g. 800x600 or 600x800) and there is a clear preference for images where at least one dimension is a multitude of 100.
 ## Monochrome Only
 ![Monochrome only](./dimension_2d_monochrome.png)
 When considering only images with the "monochrome" tag the distribution changes significantly.
-The preference for the 1:41 aspect ratio becomes even more pronounced with almost half of all monochrome images adhering to this aspect ratio.
+The preference for the 1:41 aspect ratio becomes even more pronounced with more than 40% of all monochrome images adhering to this aspect ratio.
 However, only about 10% of the images in the dataset have the monochrome tag.
 ## Color Only
 ![Color only](./dimension_2d_rgb.png)
-Danbooru does not seem to have a explicit tag for color images.
+Danbooru does not seem to have an explicit tag for color images.
 Instead images seem to be assumed color images by default.
 The distribution of color images is therefore determined by excluding the monochrome tag.
 About 90% of images do not have the monochrome tag.
 The distribution of color image dimensions is not significantly different from the distribution when considering all images.
 ## Numerical Data
 The following table contains numerical data regarding the prevalence of aspect ratios.
-An image is considered to be adhering to an aspect ratio when the ratio of the discreet width and height of an image falls within 2% of the aspect ratio.
+An image is considered to be adhering to an aspect ratio when the ratio of the discreet width and height of an image falls within 1.5% of the aspect ratio.
 
 | Aspect Ratio | All, Absolute | All, Percentage | Monochrome, Absolute | Monochrome, Percentage | Color, Absolute | Color, Percentage |
 | ------------ | ------------- | --------------- | -------------------- | ---------------------- | --------------- | ----------------- |
-| 16:9         | 99921         | 2.00%           | 2023                 | 0.46%                  | 97898           | 2.14%             |
-| 4:3          | 212679        | 4.25%           | 10452                | 2.40%                  | 202227          | 4.43%             |
-| 1:1          | 315286        | 6.30%           | 15888                | 3.65%                  | 299398          | 6.56%             |
-| 3:4          | 367227        | 7.34%           | 22835                | 5.25%                  | 344392          | 7.54%             |
-| 1:1.41       | 1319576       | 26.38%          | 199872               | 45.92%                 | 1119704         | 24.52%            |
-| Other        | 2686883       | 53.72%          | 184164               | 42.31%                 | 2502719         | 54.81%            |
+| 2:3          | 199610        | 3.99%           | 14068                | 3.23%                  | 185542          | 4.06%             |
+| 1:1.41       | 1241037       | 24.81%          | 187371               | 43.05%                 | 1053666         | 23.07%            |
+| 3:4          | 321387        | 6.43%           | 19646                | 4.51%                  | 301741          | 6.61%             |
+| 4:5          | 159944        | 3.20%           | 7696                 | 1.77%                  | 152248          | 3.33%             |
+| 1:1          | 302347        | 6.05%           | 15141                | 3.48%                  | 287206          | 6.29%             |
+| 4:3          | 198689        | 3.97%           | 9559                 | 2.20%                  | 189130          | 4.14%             |
+| 1.41:1       | 217298        | 4.34%           | 11711                | 2.69%                  | 205587          | 4.50%             |
+| 16:9         | 95084         | 1.90%           | 1828                 | 0.42%                  | 93256           | 2.04%             |
+| Other        | 2266176       | 45.31%          | 168214               | 48.65%                 | 2097962         | 45.94%            |
 | Total        | 5001572       | 100.00%         | 435234               | 100.00%                | 4566338         | 100.00%           |
 
 The aspect ratios of images are overall diffuse.
