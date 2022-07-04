@@ -8,3 +8,7 @@ The order of scripts is chosen in a way that is intended to be didactic rather t
 
 ## Dimension 2d
 [Dimension 2d](./dimension_2d) is concerned with the two-dimensional distribution of image widths and image heights and to what degree images conform to common aspect ratios.
+
+## Disk Usage Calculator
+[Disk Usage Calculator](./disk_usage_calculator) is a small utility for calculating the projected disk usage for the dataset
+when considering tag, rating, and file extension filters as well as resizing the files.
