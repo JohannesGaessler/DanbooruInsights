@@ -14,3 +14,12 @@ Color is defined as files without the monochrome tag.
 Note that the projected disk usage is given in GiB / TiB (what your computer tells you) and not as GB / TB (what is being sold to you).
 Restricting file extensions to just "jpg", "jpeg", and "png" does not significantly reduce disk usage
 with less than a 3% reduction in disk usage on average for the whole dataset.
+
+However, additionally resizing images to 2048 / 1024 / 512 pixels significantly reduces disk usage:
+| Rating               | All Images, 2048 px    | All Images, 1024 px    | All Images, 512 px     |
+|----------------------|------------------------|------------------------|------------------------|
+| Safe                 | 2.41 TiB               | 1.22 TiB               | 369.9 GiB              |
+| Questionable         | 420.3 GiB              | 208.4 GiB              | 59.7 GiB               |
+| Explicit             | 302.0 GiB              | 151.2 GiB              | 42.3 GiB               |
+| Total                | 3.12 TiB               | 1.57 TiB               | 471.9 GiB              |
+| Disk Usage Reduction | 36.6%                  | 68.1%                  | 90.6%                  |
