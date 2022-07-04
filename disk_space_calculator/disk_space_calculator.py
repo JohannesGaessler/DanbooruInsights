@@ -15,6 +15,7 @@ FILE_EXTENSIONS = [
     "png", "rar", "swf", "webm", "wmv", "zip"
 ]
 FILE_EXTENSIONS = ["jpg", "jpeg", "png"]
+RESIZE_MAX_DIM = 2048
 
 files = sorted(glob(os.path.join(METADATA_PATH, "posts*.json")))
 
@@ -36,7 +37,11 @@ def analyze_file(json_file):
             rating_index = RATINGS.index(metadata_dict["rating"])
             if tags_okay and metadata_dict["file_ext"] in FILE_EXTENSIONS:
                 count[rating_index] += 1
-                disk_space[rating_index] += int(metadata_dict["file_size"])
+                file_size = int(metadata_dict["file_size"])
+                max_dim = max(int(metadata_dict["image_width"]), int(metadata_dict["image_height"]))
+                if max_dim > RESIZE_MAX_DIM:
+                    file_size *= (RESIZE_MAX_DIM / max_dim) ** 2
+                disk_space[rating_index] += file_size
             line = f.readline()
     return count, disk_space
 
