@@ -47,12 +47,12 @@ widths = np.array(widths, dtype=float)
 heights = np.array(heights, dtype=float)
 image_aspect_ratios = widths / heights
 
-aspect_ratios = [(16, 9), (4, 3), (1, 1), (3, 4), (1, 1.41)]
+aspect_ratios = np.array([(2, 3), (1, 1.41), (3, 4), (4, 5), (1, 1), (4, 3), (1.41, 1), (16, 9)])
 num_pictures_total = image_aspect_ratios.shape[0]
 print(f"Total: {num_pictures_total}")
 num_pictures = []
 for aspect_ratio_w, aspect_ratio_h in aspect_ratios:
-    ratio_fits = np.abs(image_aspect_ratios * (aspect_ratio_h / aspect_ratio_w) - 1) < 0.02
+    ratio_fits = np.abs(image_aspect_ratios * (aspect_ratio_h / aspect_ratio_w) - 1) < 0.015
     num_pictures_i = np.sum(ratio_fits)
     print(
         f"{aspect_ratio_w}/{aspect_ratio_h}: "
@@ -66,10 +66,13 @@ plt.figure(figsize=(6, 6))
 start = 400
 stop = 5000
 plt.hist2d(widths, heights, bins=np.logspace(start=np.log10(start), stop=np.log10(stop), num=241))
+plt.plot([start, stop*2/3], [start*3/2, stop], label="2:3", alpha=0.25)
 plt.plot([start, stop/1.41], [start*1.41, stop], label="1:1.41", alpha=0.25)
 plt.plot([start, stop*3/4], [start*4/3, stop], label="3:4", alpha=0.25)
+plt.plot([start, stop*4/5], [start*5/4, stop], label="4:5", alpha=0.25)
 plt.plot([start, stop], [start, stop], label="1:1", alpha=0.25)
 plt.plot([start*4/3, stop], [start, stop*3/4], label="4:3", alpha=0.25)
+plt.plot([start*1.41, stop], [start, stop/1.41], label="1.41:1", alpha=0.25)
 plt.plot([start*16/9, stop], [start, stop*9/16], label="16:9", alpha=0.25)
 plt.xscale("log")
 plt.yscale("log")
