@@ -49,7 +49,6 @@ image_aspect_ratios = widths / heights
 
 aspect_ratios = np.array([(2, 3), (1, 1.41), (3, 4), (4, 5), (1, 1), (4, 3), (1.41, 1), (16, 9)])
 num_pictures_total = image_aspect_ratios.shape[0]
-print(f"Total: {num_pictures_total}")
 num_pictures = []
 for aspect_ratio_w, aspect_ratio_h in aspect_ratios:
     ratio_fits = np.abs(image_aspect_ratios * (aspect_ratio_h / aspect_ratio_w) - 1) < 0.015
@@ -61,6 +60,7 @@ for aspect_ratio_w, aspect_ratio_h in aspect_ratios:
     num_pictures.append(num_pictures_i)
 num_other = num_pictures_total - np.sum(num_pictures)
 print(f"Other: {num_other}, {num_other/num_pictures_total*100:.2f}%")
+print(f"Total: {num_pictures_total}")
 
 plt.figure(figsize=(6, 6))
 start = 400
