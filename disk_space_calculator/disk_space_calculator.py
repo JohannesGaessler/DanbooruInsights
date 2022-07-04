@@ -10,6 +10,11 @@ METADATA_PATH = "/run/media/johannesg/WD-Green-750G/Danbooru2021/metadata"
 WITH_TAGS = []
 WITHOUT_TAGS = []
 RATINGS = ["s", "q", "e"]
+FILE_EXTENSIONS = [
+    "avi", "bmp", "gif", "html", "jpeg", "jpg", "mp3", "mp4", "mpg", "pdf",
+    "png", "rar", "swf", "webm", "wmv", "zip"
+]
+FILE_EXTENSIONS = ["jpg", "jpeg", "png"]
 
 files = sorted(glob(os.path.join(METADATA_PATH, "posts*.json")))
 
@@ -29,7 +34,7 @@ def analyze_file(json_file):
                 if tag in metadata_dict["tag_string"]:
                     tags_okay = False
             rating_index = RATINGS.index(metadata_dict["rating"])
-            if tags_okay:
+            if tags_okay and metadata_dict["file_ext"] in FILE_EXTENSIONS:
                 count[rating_index] += 1
                 disk_space[rating_index] += int(metadata_dict["file_size"])
             line = f.readline()
