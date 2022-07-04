@@ -6,8 +6,12 @@ The aspect ratios and $\sqrt{n_\mathrm{px}}$ are then filled into histograms
 
 ## Image Size
 ![Size plot](./size.png)
-$\sqrt{n_\mathrm{px}}$ which is be interpreted of the size of a hypothetical square image with the same number of pixels.
-$\sqrt{n_\mathrm{px}}$ roughly follows a log-normal distribution around $\sqrt{n_\mathrm{px}} = 850$ that is skewed towards higher values.
+$\sqrt{n_\mathrm{px}}$ 
+which is be interpreted of the size of a hypothetical square image with the same number of pixels.
+$\sqrt{n_\mathrm{px}}$ 
+roughly follows a log-normal distribution around 
+$\sqrt{n_\mathrm{px}} = 850$
+that is skewed towards higher values.
 It can be safely assumed that the visible spikes are not due to Poisson noise.
 The spikes are likely caused by user preference though aliasing effects (regarding bin edges) were not studied.
 
