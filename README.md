@@ -12,3 +12,6 @@ The order of scripts is chosen in a way that is intended to be didactic rather t
 ## Disk Usage Calculator
 [Disk Usage Calculator](./disk_usage_calculator) is a small utility for calculating the projected disk usage for the dataset
 when considering tag, rating, and file extension filters as well as resizing the files.
+
+## File List Creation
+[File List Creator](./create_file_list) is a small utility for generating .txt files from Danbooru2021 metadata do only relevant files need to be downloaded.
